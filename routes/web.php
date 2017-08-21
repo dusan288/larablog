@@ -17,12 +17,12 @@ Route::get('/blog', ['uses' => 'BlogController@index']);
 Route::get('blog/{article_id}/read', ['uses' => 'BlogController@showArticle', 'as' => 'read_article']);
 
 //login routes:
-Route::get('/login', ['uses' => 'RegisterController@getLogin', 'as' => 'login']);
-Route::post('/login', ['uses' => 'RegisterController@postLogin']);
+Route::get('/login', ['uses' => 'AccountController@getLogin', 'as' => 'login']);
+Route::post('/login', ['uses' => 'AccountController@postLogin']);
 
-Route::get('/register', ['uses' => 'RegisterController@getRegister']);
-Route::post('/register', ['uses' => 'RegisterController@postRegister']);
-Route::any('/logout', ['uses' => 'RegisterController@logout']);
+Route::get('/register', ['uses' => 'AccountController@getRegister']);
+Route::post('/register', ['uses' => 'AccountController@postRegister']);
+Route::any('/logout', ['uses' => 'AccountController@logout']);
 
 //Protected routes, members only
 Route::group(['middleware' => 'auth'], function(){

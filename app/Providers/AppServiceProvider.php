@@ -4,6 +4,11 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use App\Repositories\CommentRepository;
+use App\Repositories\EloquentComment;
+
+use App\Repositories\ArticleRepository;
+use App\Repositories\EloquentArticle;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,6 +29,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+
+        //bind comment Repository
+        $this->app->bind(CommentRepository::class, EloquentComment::class );
+        //bind article Repo
+        $this->app->bind(ArticleRepository::class, EloquentArticle::class );
         /*
           $this->app->bind('App\BlogService', function ($app) {
             $model = new Article();

@@ -180,7 +180,6 @@ return [
          * Custom Service Providers
          */
          App\Providers\BlogServiceProvider::class,
-         App\Providers\CommentServiceProvider::class,
       
 
     ],
